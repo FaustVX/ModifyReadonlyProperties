@@ -1,0 +1,21 @@
+name: publishNugetPackage
+
+on: [push]
+
+jobs:
+  publish:
+
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-dotnet@v1.0.2
+    - uses: warrenbuckley/Setup-Nuget@v1
+    - name: nuget source
+      run: |
+        nuget sources Add -Name "GitHub" -Source "https://nuget.pkg.github.com/FaustVX/index.json" -UserName FaustVX -Password ${{ secrets.TOKEN }}
+        nuget setApiKey ${{ secrets.TOKEN }} -source "GitHub"
+    - run: dotnet build
+    - run: dotnet test
+    - run: nuget pack
+    - run: nuget push *.nupkg -Source "GitHub"

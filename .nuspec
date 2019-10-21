@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>ModifyReadonlyProperties</id>
+        <version>1.0.0</version>
+        <authors>FaustVX</authors>
+        <projectUrl>https://github.com/FaustVX/ModifyReadonlyProperties</projectUrl>
+        <description>A .Net Library which allows to modify readonly properties</description>
+        <dependencies>
+            <group targetFramework=".NETStandard2.1" />
+        </dependencies>
+    </metadata>
+</package>
